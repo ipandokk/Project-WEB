@@ -1,0 +1,189 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #a8dadc, #f1faee);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.container {
+  background: #fff;
+  width: 90%;
+  max-width: 650px;
+  margin: 40px 0;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  padding: 25px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  text-align: center;
+  color: #1d3557;
+  margin-bottom: 15px;
+}
+
+.mode-toggle {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#toggleMode {
+  background-color: #1d3557;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+#toggleMode:hover {
+  background-color: #457b9d;
+}
+
+/* Form */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1d3557;
+}
+
+input, select {
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.add-btn {
+  grid-column: span 2;
+  background-color: #1d3557;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.add-btn:hover {
+  background-color: #457b9d;
+}
+
+/* Tugas */
+.task {
+  background: #f1faff;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task.done {
+  text-decoration: line-through;
+  color: gray;
+  background-color: #d2f8d2;
+}
+
+.task small {
+  display: block;
+  color: #555;
+}
+
+.task button {
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.no-task {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+}
+
+.date-title {
+  text-align: center;
+  font-weight: bold;
+  color: #1d3557;
+  margin: 20px 0 10px;
+}
+
+/* 🌙 Dark Mode */
+body.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f8f9fa;
+}
+
+body.dark .container {
+  background: rgba(30, 39, 46, 0.85);
+  color: #f8f9fa;
+}
+
+body.dark .task {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark input, body.dark select {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark button {
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+}
+
+body.dark .no-task {
+  color: #b0b0b0;
+}
+
+/* 📱 Responsif untuk HP */
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .add-btn {
+    grid-column: span 1;
+  }
+
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task div:last-child {
+    margin-top: 8px;
+  }
+
+  input, select, button {
+    font-size: 14px;
+  }
+}
