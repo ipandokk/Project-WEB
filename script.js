@@ -1,7 +1,3 @@
-// ====================
-// To-Do List Script
-// ====================
-
 const form = document.getElementById("taskForm");
 const taskListContainer = document.getElementById("taskListContainer");
 const toggleModeBtn = document.getElementById("toggleMode");
@@ -11,7 +7,6 @@ let darkMode = false;
 
 renderTasks();
 
-// Tambah tugas baru
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -38,7 +33,6 @@ form.addEventListener("submit", (e) => {
   renderTasks();
 });
 
-// Render tugas
 function renderTasks() {
   taskListContainer.innerHTML = "";
 
@@ -61,7 +55,7 @@ function renderTasks() {
       taskDiv.innerHTML = `
         <div>
           <strong>${task.text}</strong>
-          <small>🕒 ${task.time} | 📂 ${task.category}</small>
+          <small>🕒 ${task.time} | 🗂️ ${task.category}</small>
         </div>
         <div>
           <button onclick="toggleDone(${task.id})">✔️</button>
@@ -73,7 +67,6 @@ function renderTasks() {
   });
 }
 
-// Tandai selesai
 function toggleDone(id) {
   tasks = tasks.map((task) =>
     task.id === id ? { ...task, done: !task.done } : task
@@ -82,7 +75,6 @@ function toggleDone(id) {
   renderTasks();
 }
 
-// Hapus tugas
 function deleteTask(id) {
   if (confirm("Hapus tugas ini?")) {
     tasks = tasks.filter((task) => task.id !== id);
@@ -91,7 +83,6 @@ function deleteTask(id) {
   }
 }
 
-// Kelompokkan berdasarkan tanggal
 function groupByDate(arr) {
   return arr.reduce((acc, item) => {
     (acc[item.date] = acc[item.date] || []).push(item);
@@ -99,18 +90,11 @@ function groupByDate(arr) {
   }, {});
 }
 
-// Format tanggal
 function formatDate(dateStr) {
   const d = new Date(dateStr);
-  return d.toLocaleDateString("id-ID", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  return d.toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 }
 
-// 🌙 Toggle Dark Mode
 toggleModeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   darkMode = !darkMode;
