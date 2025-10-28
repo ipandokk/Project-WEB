@@ -24,35 +24,71 @@ body {
 h1 {
   text-align: center;
   color: #1d3557;
+  margin-bottom: 15px;
 }
 
+.mode-toggle {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#toggleMode {
+  background-color: #1d3557;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+#toggleMode:hover {
+  background-color: #457b9d;
+}
+
+/* Form */
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
-input, select, button {
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1d3557;
+}
+
+input, select {
   padding: 10px;
   font-size: 15px;
   border-radius: 10px;
   border: 1px solid #ccc;
 }
 
-button {
+.add-btn {
   grid-column: span 2;
   background-color: #1d3557;
   color: white;
   border: none;
+  padding: 10px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 15px;
 }
 
-button:hover {
+.add-btn:hover {
   background-color: #457b9d;
 }
 
+/* Tugas */
 .task {
   background: #f1faff;
   padding: 12px;
@@ -81,6 +117,7 @@ button:hover {
   border-radius: 6px;
   padding: 5px 8px;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .no-task {
@@ -93,10 +130,10 @@ button:hover {
   text-align: center;
   font-weight: bold;
   color: #1d3557;
-  margin-bottom: 15px;
+  margin: 20px 0 10px;
 }
 
-
+/* 🌙 Dark Mode */
 body.dark {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #f8f9fa;
@@ -125,4 +162,28 @@ body.dark button {
 
 body.dark .no-task {
   color: #b0b0b0;
+}
+
+/* 📱 Responsif untuk HP */
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .add-btn {
+    grid-column: span 1;
+  }
+
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task div:last-child {
+    margin-top: 8px;
+  }
+
+  input, select, button {
+    font-size: 14px;
+  }
 }
