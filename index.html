@@ -1,36 +1,52 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To-Do List</title>
+  <title>To-Do List - Kenzo</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>✅ To-Do List</h1>
+    <h1> To-Do List</h1>
 
-    
-    <div style="text-align: center; margin-bottom: 10px;">
-      <button id="toggleMode" style="background:#555; font-size:14px; padding:6px 12px;">🌙 Dark Mode</button>
+    <!-- Tombol Mode -->
+    <div class="mode-toggle">
+      <button id="toggleMode">🌙 Dark Mode</button>
     </div>
 
-    
+    <!-- Form Tambah Tugas -->
     <form id="taskForm">
-      <input type="text" id="taskInput" placeholder="Tulis tugas..." required />
-      <input type="time" id="taskTime" required />
-      <input type="date" id="taskDate" required />
-      <select id="taskCategory">
-        <option value="Pribadi">Pribadi</option>
-        <option value="Pekerjaan">Pekerjaan</option>
-        <option value="Sekolah">Sekolah</option>
-        <option value="Kesehatan">Kesehatan</option>
-      </select>
-      <button type="submit">+ Tambah Tugas</button>
+      <div class="form-group">
+        <label for="taskInput">📝 Tugas:</label>
+        <input type="text" id="taskInput" placeholder="Tulis tugas..." required />
+      </div>
+
+      <div class="form-group">
+        <label for="taskDate">📅 Tanggal:</label>
+        <input type="date" id="taskDate" required />
+      </div>
+
+      <div class="form-group">
+        <label for="taskTime">⏰ Jam:</label>
+        <input type="time" id="taskTime" required />
+      </div>
+
+      <div class="form-group">
+        <label for="taskCategory">📂 Kategori:</label>
+        <select id="taskCategory">
+          <option value="Pribadi">Pribadi</option>
+          <option value="Pekerjaan">Pekerjaan</option>
+          <option value="Sekolah">Sekolah</option>
+          <option value="Kesehatan">Kesehatan</option>
+        </select>
+      </div>
+
+      <button type="submit" class="add-btn">+ Tambah Tugas</button>
     </form>
 
-   
+    <!-- Daftar Tugas -->
     <div id="taskListContainer">
       <div class="no-task">Belum ada tugas hari ini 🌤️</div>
     </div>
