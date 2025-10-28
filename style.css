@@ -133,36 +133,84 @@ input, select {
   margin: 20px 0 10px;
 }
 
-/* 🌙 Dark Mode */
+/* 🌙 DARK MODE */
 body.dark {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #f8f9fa;
+  background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+  color: #f1f1f1;
 }
 
+/* Container dan judul */
 body.dark .container {
-  background: rgba(30, 39, 46, 0.85);
+  background: rgba(25, 35, 55, 0.85);
+  color: #f1f1f1;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+body.dark h1 {
   color: #f8f9fa;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-body.dark .task {
+/* Label form (Tugas, Jam, Tanggal, Kategori) */
+body.dark label {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Input dan Select */
+body.dark input,
+body.dark select {
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.15);
+  color: #f1f1f1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
 }
 
-body.dark input, body.dark select {
+body.dark input::placeholder {
+  color: #bfbfbf;
+}
+
+body.dark input:focus,
+body.dark select:focus {
+  border-color: #5bc0de;
   background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Tombol utama */
 body.dark button {
   background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
+body.dark button:hover {
+  background: linear-gradient(135deg, #48cae4, #0096c7);
+}
+
+/* Daftar tugas */
+body.dark .task {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f1f1f1;
+}
+
+body.dark .task.done {
+  background: rgba(46, 204, 113, 0.2);
+  color: #a3e4d7;
+  text-decoration: line-through;
+}
+
+/* Warna judul tanggal */
+body.dark .date-title {
+  color: #caf0f8;
+}
+
+/* Warna teks saat tidak ada tugas */
 body.dark .no-task {
   color: #b0b0b0;
 }
+
 
 /* 📱 Responsif untuk HP */
 @media (max-width: 600px) {
@@ -187,3 +235,4 @@ body.dark .no-task {
     font-size: 14px;
   }
 }
+
