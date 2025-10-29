@@ -24,6 +24,7 @@ form.addEventListener("submit", (e) => {
     date: taskDate,
     category: taskCategory,
     done: false,
+    inProgress: false, 
   };
 
   tasks.push(newTask);
@@ -51,13 +52,19 @@ function renderTasks() {
 
     grouped[date].forEach((task) => {
       const taskDiv = document.createElement("div");
-      taskDiv.className = "task" + (task.done ? " done" : "");
+      taskDiv.className =
+        "task" +
+        (task.done ? " done" : "") +
+        (task.inProgress ? " progress" : "");
+
       taskDiv.innerHTML = `
         <div>
           <strong>${task.text}</strong>
           <small>🕒 ${task.time} | 🗂️ ${task.category}</small>
+          ${task.inProgress ? '<span class="status">⏳ Sedang dikerjakan</span>' : ''}
         </div>
         <div>
+          ${!task.done ? `<button onclick="toggleProgress(${task.id})">⚙️</button>` : ""}
           <button onclick="toggleDone(${task.id})">✔️</button>
           <button onclick="deleteTask(${task.id})">🗑️</button>
         </div>
@@ -67,9 +74,21 @@ function renderTasks() {
   });
 }
 
+function toggleProgress(id) {
+  tasks = tasks.map((task) =>
+    task.id === id
+      ? { ...task, inProgress: !task.inProgress }
+      : { ...task, inProgress: false } 
+  );
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  renderTasks();
+}
+
 function toggleDone(id) {
   tasks = tasks.map((task) =>
-    task.id === id ? { ...task, done: !task.done } : task
+    task.id === id
+      ? { ...task, done: !task.done, inProgress: false } 
+      : task
   );
   localStorage.setItem("tasks", JSON.stringify(tasks));
   renderTasks();
@@ -92,7 +111,12 @@ function groupByDate(arr) {
 
 function formatDate(dateStr) {
   const d = new Date(dateStr);
-  return d.toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  return d.toLocaleDateString("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 }
 
 toggleModeBtn.addEventListener("click", () => {

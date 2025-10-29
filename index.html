@@ -9,45 +9,48 @@
 </head>
 <body>
   <div class="container">
-    <h1>🗒️ To-Do List</h1>
-
-    <div class="mode-toggle">
-      <button id="toggleMode">🌙 Dark Mode</button>
-    </div>
-
-    
-    <form id="taskForm" class="form-grid">
-      <div class="form-group">
-        <label for="taskInput">📝 Tugas:</label>
-        <input type="text" id="taskInput" placeholder="Tulis tugas yang akan dilakukan..." required />
-      </div>
-      <div class="form-group">
-        <label for="taskDate">📅 Tanggal:</label>
-        <input type="date" id="taskDate" required />
-      </div>
-      <div class="form-group">
-        <label for="taskTime">⏰ Jam:</label>
-        <input type="time" id="taskTime" required />
-      </div>
-      <div class="form-group">
-        <label for="taskCategory">📂 Kategori:</label>
-        <select id="taskCategory">
-          <option value="Pribadi">Pribadi</option>
-          <option value="Pekerjaan">Pekerjaan</option>
-          <option value="Sekolah">Sekolah</option>
-          <option value="Kesehatan">Kesehatan</option>
-        </select>
-      </div>
-      <button type="submit" class="add-btn">+ Tambah Tugas</button>
-    </form>
-
-    
-    <div id="taskListContainer">
-      <div class="no-task">Belum ada tugas hari ini 🌤️</div>
-    </div>
+  <h1>🗒️ To-Do List</h1>
+  <div class="mode-toggle">
+    <button id="toggleMode">🌙 Dark Mode</button>
   </div>
 
-  
+  <div class="main-layout">
+    <div class="form-section">
+      <form id="taskForm" class="form-grid">
+        <div class="form-group">
+          <label for="taskInput">📝 Tugas:</label>
+          <input type="text" id="taskInput" placeholder="Tulis tugas yang akan dilakukan..." required />
+        </div>
+        <div class="form-group">
+          <label for="taskDate">📅 Tanggal:</label>
+          <input type="date" id="taskDate" required />
+        </div>
+        <div class="form-group">
+          <label for="taskTime">⏰ Jam:</label>
+          <input type="time" id="taskTime" required />
+        </div>
+        <div class="form-group">
+          <label for="taskCategory">📂 Kategori:</label>
+          <select id="taskCategory">
+            <option value="Pribadi">Pribadi</option>
+            <option value="Pekerjaan">Pekerjaan</option>
+            <option value="Sekolah">Sekolah</option>
+            <option value="Kesehatan">Kesehatan</option>
+          </select>
+        </div>
+        <button type="submit" class="add-btn">+ Tambah Tugas</button>
+      </form>
+    </div>
+
+    <div class="list-section">
+      <h2>📋 Daftar Kegiatan</h2>
+      <div id="taskListContainer">
+        <div class="no-task">Belum ada tugas hari ini 🌤️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="credit">
   <p>Dibuat oleh <strong>Ferdinand Ivan Hendradinata</strong></p>
 </div>
