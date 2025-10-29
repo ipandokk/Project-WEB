@@ -23,7 +23,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #e4e8ed;
+  color: #6a7585;
   margin-bottom: 15px;
 }
 .mode-toggle {
@@ -251,4 +251,5 @@ body.dark .credit {
 body.dark .credit strong {
   color: #90e0ef;
 }
+
 
